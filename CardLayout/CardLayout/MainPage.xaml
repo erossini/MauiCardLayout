@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CardLayout;assembly=CardLayout"
+             x:Class="CardLayout.MainPage">
+
+	<local:CardsLayout CardScaling="0.8"
+						  x:DataType="local:MainPageViewModel"
+		                  Spacing="25"
+						  Direction="LeftToRight"
+						  SwipeDirection="Right"
+		                  Items="{Binding Pizzas}">
+		<local:CardsLayout.EmptyView>
+			<Button Text="No items found"/>
+		</local:CardsLayout.EmptyView>
+		<local:CardsLayout.ItemTemplate>
+			<DataTemplate x:DataType="local:Pizza">
+				<local:FlipView Name="{Binding Name}" Description="{Binding Description}" Image="{Binding Image}" Price="{Binding Price}" />
+			</DataTemplate>
+		</local:CardsLayout.ItemTemplate>
+	</local:CardsLayout>
+
+</ContentPage>
